@@ -1,5 +1,7 @@
 package org.sda.java19;
 
+import org.sda.java19.models.JavaDeveloper;
+
 /**
  * Exercise 1
  *
@@ -20,10 +22,25 @@ package org.sda.java19;
 
 public class Main {
     public static void main(String[] args) {
-        JavaDeveloper javaDeveloper1 = new JavaDeveloper("Vello", "Konn", 30, true, 5000);
+        JavaDeveloper javaDeveloper1 = new JavaDeveloper();
+        javaDeveloper1.setName("Marko");
+        javaDeveloper1.setFirstName("Konn");
+        javaDeveloper1.setLastName("Karn");
+        javaDeveloper1.setAge(30);
+        javaDeveloper1.setHasExperience(false);
+        javaDeveloper1.setSalary(5000);
 
-        System.out.println(javaDeveloper1.getFirstName());
-        System.out.println(javaDeveloper1.isWorking());
+        //C.
+        System.out.println(javaDeveloper1);
+
+        //D.
+        //Public or protected
+        System.out.println(javaDeveloper1.getSalary());
+
+        //E.
+        javaDeveloper1.setName("Tony ", "Stark");
+        System.out.println(javaDeveloper1.getName());
+
 
     }
 }
