@@ -30,18 +30,18 @@ public class Main {
             String[] person = fileline.split(", ");
 
             switch(person[0]) {
-                case "Name":
+                case "Person1":
                     Person1 person1 = new Person1();
-                    person1.setName(person[1]);
+                    person1.setName(person[2]);
                     person1.setSurname(person[4]);
-                    person1.setPhoneNumber(person[5]);
+                    person1.setPhoneNumber(person[6]);
                     person1List.add(person1);
                     break;
-                case "Surname":
+                case "Person2":
                     Person2 person2 = new Person2();
-                    person2.setName(person[1]);
-                    person2.setSurname(person[3]);
-                    person2.setPhoneNumber(person[5]);
+                    person2.setName(person[2]);
+                    person2.setSurname(person[4]);
+                    person2.setPhoneNumber(person[6]);
                     person2List.add(person2);
                     break;
                 default:
@@ -51,6 +51,10 @@ public class Main {
 
         System.out.println(person1List);
         System.out.println(person2List);
+
+        for (Person1 list: person1List) {
+            System.out.println(list.);
+        }
 
     }
 }
