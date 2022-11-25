@@ -5,9 +5,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * 3. Personal information
@@ -26,10 +26,10 @@ public class Main {
         List<Person1> person1List = new ArrayList<>();
         List<Person2> person2List = new ArrayList<>();
 
-        for (String fileline: fileLines) {
+        for (String fileline : fileLines) {
             String[] person = fileline.split(", ");
 
-            switch(person[0]) {
+            switch (person[0]) {
                 case "Person1":
                     Person1 person1 = new Person1();
                     person1.setName(person[2]);
@@ -49,12 +49,16 @@ public class Main {
             }
         }
 
-        System.out.println(person1List);
-        System.out.println(person2List);
+        for (Person1 list : person1List) {
+            System.out.println("Name: " + list.getName() + " Surname: " + list.getSurname() + " Phone Number: " + list.getPhoneNumber());
+        }
 
-        for (Person1 list: person1List) {
-            System.out.println(list.);
+        for (Person2 list : person2List) {
+            System.out.println("Name: " + list.getName() + " Surname: " + list.getSurname() + " Phone Number: " + list.getPhoneNumber());
         }
 
     }
+
+
 }
+
