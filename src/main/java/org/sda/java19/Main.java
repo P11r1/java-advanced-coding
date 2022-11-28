@@ -87,6 +87,7 @@ public class Main {
         group.setName("Java19");
         group.setTrainer(getInitialTrainers().get(0));
 
+
         Group group2 = new Group();
         group2.setName("Java20");
         group2.setTrainer(getInitialTrainers().get(2));
@@ -104,6 +105,9 @@ public class Main {
     }
 
     private static void assignStudentsToGroup(List<Group> groupList) {
+        Group group = new Group();
+
+
 
     }
 }
