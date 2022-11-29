@@ -1,5 +1,6 @@
 package org.sda.java19;
 
+import org.sda.java19.exception.MaximumNumberOfStudentsReached;
 import org.sda.java19.models.Group;
 import org.sda.java19.models.Student;
 import org.sda.java19.models.Trainer;
@@ -201,8 +202,11 @@ public class Main {
     }
 
     private static void assignStudentsToGroup(List<Group> groupList) {
-        groupList.add(getInitialStudents().get());
-        groupList.forEach(System.out::println);
+        try {
+
+        } catch (MaximumNumberOfStudentsReached maximumNumberOfStudentsReached) {
+            System.out.println(maximumNumberOfStudentsReached.getLocalizedMessage());
+        }
 
 
     }
