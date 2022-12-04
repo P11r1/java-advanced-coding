@@ -7,6 +7,7 @@ import org.sda.java19.models.Trainer;
 
 import java.time.LocalDate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -203,7 +204,7 @@ public class Main {
 
     private static void assignStudentsToGroup(List<Group> groupList) {
         try {
-
+            groupList = getInitialStudents().get()
         } catch (MaximumNumberOfStudentsReached maximumNumberOfStudentsReached) {
             System.out.println(maximumNumberOfStudentsReached.getLocalizedMessage());
         }
