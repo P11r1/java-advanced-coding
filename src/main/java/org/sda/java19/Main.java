@@ -80,7 +80,7 @@ public class Main {
         student3.setFirstName("Riho");
         student3.setLastName("Tammis");
         student3.setDateOfBirth(LocalDate.of(1990, 9, 1));
-        student3.setHasPreviousJavaKnowledge(false);
+        student3.setHasPreviousJavaKnowledge(true);
 
         Student student4 = new Student();
         student4.setFirstName("Liis");
@@ -92,11 +92,11 @@ public class Main {
         student5.setFirstName("Ringo");
         student5.setLastName("Leht");
         student5.setDateOfBirth(LocalDate.of(1978, 7, 5));
-        student5.setHasPreviousJavaKnowledge(false);
+        student5.setHasPreviousJavaKnowledge(true);
 
         Student student6 = new Student();
-        student6.setFirstName("Katrin");
-        student6.setLastName("Turin");
+        student6.setFirstName("Raido");
+        student6.setLastName("Liitmaa");
         student6.setDateOfBirth(LocalDate.of(1994, 6, 6));
         student6.setHasPreviousJavaKnowledge(false);
 
@@ -104,7 +104,7 @@ public class Main {
         student7.setFirstName("Karin");
         student7.setLastName("Laas");
         student7.setDateOfBirth(LocalDate.of(1990, 5, 7));
-        student7.setHasPreviousJavaKnowledge(false);
+        student7.setHasPreviousJavaKnowledge(true);
 
         Student student8 = new Student();
         student8.setFirstName("Kaily");
@@ -146,7 +146,7 @@ public class Main {
         student14.setFirstName("Janika");
         student14.setLastName("Kress");
         student14.setDateOfBirth(LocalDate.of(1982, 5, 27));
-        student14.setHasPreviousJavaKnowledge(false);
+        student14.setHasPreviousJavaKnowledge(true);
 
 
         //Create 13 more, make sure there is no duplicates
@@ -203,11 +203,6 @@ public class Main {
     }
 
     private static void assignStudentsToGroup(List<Group> groupList) {
-        try {
-            groupList = getInitialStudents().get()
-        } catch (MaximumNumberOfStudentsReached maximumNumberOfStudentsReached) {
-            System.out.println(maximumNumberOfStudentsReached.getLocalizedMessage());
-        }
 
 
     }
