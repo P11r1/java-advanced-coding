@@ -2,13 +2,14 @@ package org.sda.java19;
 
 import org.sda.java19.exception.MaximumNumberOfStudentsReached;
 import org.sda.java19.models.Group;
+import org.sda.java19.models.Person;
 import org.sda.java19.models.Student;
 import org.sda.java19.models.Trainer;
 
 import java.time.LocalDate;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * SDA Scheduler
@@ -47,13 +48,22 @@ import java.util.List;
  */
 
 public class Main {
-    public static void main(String[] args) {
+    private static final int MAXIMUM_ALLOWED_STUDENTS = 5;
+
+    public static void main(String[] args) throws MaximumNumberOfStudentsReached {
 
         //STORE STUDENTS, TRAINERS, GROUPS IN A LIST
         List<Student> studentList = getInitialStudents();
         List<Trainer> trainerList = getInitialTrainers();
         List<Group> groupList = getInitialGroups();
-        assignStudentsToGroup(groupList);
+
+        assignStudentsToGroup(groupList, studentList);
+        assignTrainerToGroup(groupList, trainerList);
+
+        Tasks tasks = new Tasks();
+        tasks.sortByLastName(groupList);
+        tasks.displayGroupWithMaxStudents(groupList);
+        tasks.sortByLastName(groupList);
     }
 
     //MANUALLY INITIALIZE 15 STUDENTS
@@ -183,27 +193,61 @@ public class Main {
     private static List<Group> getInitialGroups() {
         Group group = new Group();
         group.setName("Java19");
-        group.setTrainer(getInitialTrainers().get(0));
+
 
 
         Group group2 = new Group();
         group2.setName("Java20");
-        group2.setTrainer(getInitialTrainers().get(2));
+
 
         Group group3 = new Group();
         group3.setName("Java21");
-        group3.setTrainer(getInitialTrainers().get(1));
+
 
         Group group4 = new Group();
         group4.setName("Java22");
-        group4.setTrainer(getInitialTrainers().get(0));
+
 
         return List.of(group, group2, group3, group4);
 
     }
 
-    private static void assignStudentsToGroup(List<Group> groupList) {
+    //Get students from list randomly and then remove students that are already assigned
+    private static void assignStudentsToGroup(List<Group> groupList, List<Student> studentList) throws MaximumNumberOfStudentsReached {
+        LinkedList<Student> studentLinkedList = new LinkedList<>(studentList);//Array list to linkedlist conversion
 
+        for (Group group : groupList) {
+            List<Student> students = new ArrayList<>();
+
+            for (int i = 0; i <= 4; i++) {
+                if (students.size() >= MAXIMUM_ALLOWED_STUDENTS) {
+                    throw new MaximumNumberOfStudentsReached(group.getName());
+                }
+
+                if (!studentLinkedList.isEmpty()) {
+                    Random random = new Random();
+                    //Getting random index from the list
+                    int nextStudentIndex = random.nextInt(studentLinkedList.size());
+                    students.add(studentLinkedList.get(nextStudentIndex));
+                    studentLinkedList.remove(nextStudentIndex); // if i get one student it will be removed
+                }
+            }
+
+            group.setStudents(students);
+
+        }
+    }
+
+    private static void assignTrainerToGroup(List<Group> groupList, List<Trainer> trainerList) {
+        for (Group group : groupList) {
+
+
+            Random random = new Random();
+            //Getting random index from the list
+            int nextTrainerIndex = random.nextInt(trainerList.size());
+            group.setTrainer(trainerList.get(nextTrainerIndex));
+
+        }
 
     }
 }
