@@ -20,9 +20,7 @@ public class Tasks {
 
     // Display the group with the maximum number of students
     public void displayGroupWithMaxStudents(List<Group> groupList) {
-        groupList.stream()
-                .sorted(Comparator.comparingInt(List::size).reversed())
-                .findFirst()
+        groupList.stream().max(Comparator.comparingInt(List::size))
                 .ifPresent(System.out::println);
 
     }
