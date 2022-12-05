@@ -1,15 +1,12 @@
 package org.sda.java19;
 
 import org.sda.java19.exception.MaximumNumberOfStudentsReached;
-import org.sda.java19.models.Group;
-import org.sda.java19.models.Person;
-import org.sda.java19.models.Student;
-import org.sda.java19.models.Trainer;
+import org.sda.java19.models.*;
 
 import java.time.LocalDate;
 
 import java.util.*;
-import java.util.stream.Collectors;
+
 
 /**
  * SDA Scheduler
@@ -185,7 +182,6 @@ public class Main {
         trainer3.setAuthorized(true);
 
         return List.of(trainer, trainer2, trainer3);
-
     }
 
     //MANUALLY INITIALIZE 4 GROUPS
@@ -194,22 +190,16 @@ public class Main {
         Group group = new Group();
         group.setName("Java19");
 
-
-
         Group group2 = new Group();
         group2.setName("Java20");
-
 
         Group group3 = new Group();
         group3.setName("Java21");
 
-
         Group group4 = new Group();
         group4.setName("Java22");
 
-
         return List.of(group, group2, group3, group4);
-
     }
 
     //Get students from list randomly and then remove students that are already assigned
@@ -232,15 +222,12 @@ public class Main {
                     studentLinkedList.remove(nextStudentIndex); // if i get one student it will be removed
                 }
             }
-
             group.setStudents(students);
-
         }
     }
 
     private static void assignTrainerToGroup(List<Group> groupList, List<Trainer> trainerList) {
         for (Group group : groupList) {
-
 
             Random random = new Random();
             //Getting random index from the list
@@ -248,6 +235,5 @@ public class Main {
             group.setTrainer(trainerList.get(nextTrainerIndex));
 
         }
-
     }
 }
